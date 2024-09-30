@@ -1,0 +1,45 @@
+{% load static %}
+<div class="menu-main">
+    <ul class="dc_css3_menu">
+        {% if not user.is_authenticated %}
+        <li class="active">
+            <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+            <a href="{% url 'services' %}">Services</a>
+        </li>
+        <li>
+            <a href="{% url 'shopview' %}">Shops</a>
+        </li>
+        <li>
+            <a href="{% url 'login' %}">Login</a>
+        </li>
+        {% elif user.is_authenticated and user.shopowner_profile %}
+        <li class="active">
+            <a href="{% url 'shopshome' %}">Home</a>
+        </li>
+        <li>
+            <a href="{% url 'viewproducts' %}">Your Products</a>
+        </li>
+        <li>
+            <a href="{% url 'addproducts' %}">Add Products</a>
+        </li>
+        <li>
+            <a href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% elif user.is_authenticated and user.customer_profile %}
+        <li class="active">
+            <a href="{% url 'products' %}">Home</a>
+        </li>
+        <li>
+            <a href="{% url 'customerproductview' %}">Products</a>
+        </li>
+        <li>
+            <a href="{% url 'wishlist' %}">Wishlist</a>
+        </li>
+        <li>
+            <a href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>

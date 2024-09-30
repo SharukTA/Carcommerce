@@ -1,0 +1,25 @@
+{% extends "blank_layout.html" %} 
+{% load static %}
+{% block content %}
+
+<div class="header-bottom">
+    <div class="wrap">
+        <div class="main-box">
+            <div class="filter-wrapper ">
+                <div class="category">
+                    <strong>SHOPS AVAILABLE </strong>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="gallery-grids">
+                {% for shop in shops %}
+                    <h4>{{ shop.shopname }}</h4>
+                    <h4>{{ shop.ownername }}</h4>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

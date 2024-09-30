@@ -1,0 +1,73 @@
+{% extends 'blank_layout.html' %}
+{% load static %}
+{% block content %}
+{% if messages %}
+    <script>
+        {% for message in messages %}
+            alert('{{ message }}');
+        {% endfor %}
+    </script>
+{% endif %}
+<div class="main-content">
+    <div class="wrap">
+        <div class="main-box">
+            <div class="filter-wrapper">
+                <div class="category">
+                    <strong>PRODUCTS AVAILABLE: </strong>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+                <thead>
+                    <tr>
+                        <th style="width: 20%; text-align: left; font-weight: bold; padding: 10px;">Product Name</th>
+                        <th style="width: 20%; text-align: left; font-weight: bold; padding: 10px;">Product Company</th>
+                        <th style="width: 20%; text-align: left; font-weight: bold; padding: 10px;">Fuel Type</th>
+                        <th style="width: 20%; text-align: left; font-weight: bold; padding: 10px;">Gear System</th>
+                        <th style="width: 20%; text-align: left; font-weight: bold; padding: 10px;">Quantity</th>
+                        <th style="width: 20%; text-align: left; font-weight: bold; padding: 10px;">Photo</th>
+                        <th style="width: 10%; text-align: left; font-weight: bold; padding: 10px;"></th>
+                        <th style="width: 10%; text-align: left; font-weight: bold; padding: 10px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td style="padding: 10px; vertical-align: middle;">{{ product.product_name }}</td>
+                            <td style="padding: 10px; vertical-align: middle;">{{ product.product_company }}</td>
+                            <td style="padding: 10px; vertical-align: middle;">{{ product.product_type }}</td>
+                            <td style="padding: 10px; vertical-align: middle;">{{ product.gear_transmission }}</td>
+                            <td style="padding: 10px; vertical-align: middle;">{{ product.quantity }}</td>
+                            <td style="padding: 10px; vertical-align: middle;">
+                                <img src="{{ product.photo.url }}" alt="Product Image" style="max-width: 80px;">
+                            </td>
+                            <td style="padding: 10px; vertical-align: middle;">
+                                <a href="#">
+                                <button type="button" style="background-color:#4CAF50; border-radius:5px; color:white; border:none; text-decoration:none; font-size:16px; width:70px; height:50px; cursor:pointer;" 
+                                        onmouseover="this.style.backgroundColor='#45a049'" 
+                                        onmouseout="this.style.backgroundColor='#4CAF50'" 
+                                        onmousedown="this.style.backgroundColor='#3e8e41'; this.style.transform='translateY(2px)'" 
+                                        onmouseup="this.style.backgroundColor='#45a049'; this.style.transform='translateY(0px)'">
+                                    Buy Now
+                                </button></a>
+                            </td>
+                            
+                            <td style="padding: 10px; vertical-align: middle;">  
+                                <a href="{% url 'addtowishlist' product.id %}">
+                                <button type="button" style="background-color:#FFD700; border-radius:5px; color:black; border:none; text-decoration:none; font-size:16px; width:70px; height:50px; cursor:pointer;" 
+                                    onmouseover="this.style.backgroundColor='#FFC300'" 
+                                    onmouseout="this.style.backgroundColor='#FFD700'" 
+                                    onmousedown="this.style.backgroundColor='#FFB600'; this.style.transform='translateY(2px)'" 
+                                    onmouseup="this.style.backgroundColor='#FFC300'; this.style.transform='translateY(0px)'">
+                                Add To Wishlist
+                            </button></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

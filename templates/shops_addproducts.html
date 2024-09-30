@@ -1,0 +1,46 @@
+{% extends 'blank_layout.html' %}
+{% load static %}
+{% block content %}
+<div class="register-container" style="margin: 50px 750px 50px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 300px; text-align: center;">
+    <div class="messaging" style="text-align: center;">
+        {% if messages %}
+            {% for message in messages %}
+                <li style="color:{% if message.tags == 'error' %}red{% elif message.tags == 'success'%}green{% endif %}">{{ message }}</li>
+            {% endfor %}
+        
+        {% endif %}
+    </div>
+    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: bold;">Add products</h2>
+    <form method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column;">
+        {% csrf_token %}
+        <label for="productcompany" style="margin: 5px 0; text-align: left;">Product Company:</label>
+        <input type="text" id="productcompany" name="productcompany" required style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        
+        <label for="productname" style="margin: 5px 0; text-align: left;">Product Name:</label>
+        <input type="text" id="productname" name="productname" required style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        
+        <label for="producttype" style="margin: 5px 0; text-align: left;">Product Type:</label>
+        <select id="producttype" name="producttype" required style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            <option value="" disabled selected>Select an option</option>
+            <option value="EV">EV</option>
+            <option value="diesel">Diesel</option>
+            <option value="petrol">Petrol</option>
+        </select>        
+        <label for="geartransmission" style="margin: 5px 0; text-align: left;">Gear Transmission:</label>
+        <select id="geartransmission" name="geartransmission" required style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            <option value="" disabled selected>Select an option</option>
+            <option value="automatic">Automatic</option>
+            <option value="manual">Manual</option>
+        </select>
+        
+        <label for="modelno" style="margin: 5px 0; text-align: left;">Model No:</label>
+        <input type="text" id="modelno" name="modelno" required style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        <label for="quantity" style="margin: 5px 0; text-align: left;">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="7" required style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;" onkeydown="return false;">
+        <label for="photo" style="margin: 5px 0; text-align: left;">Photo:</label>
+        <input type="file" id="photo" name="photo" accept=".jpg,.pdf,.jpeg,.png" required style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        
+        <button type="submit" style="padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">Add</button>
+    </form>
+</div>
+{% endblock content %}

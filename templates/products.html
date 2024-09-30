@@ -1,0 +1,84 @@
+{% extends 'blank_layout.html' %}
+{% load static %}
+{% block content %}
+<div class="main-content">
+    <div class="wrap">
+        <div class="main-box">
+            <div class="box_wrapper">
+                <h1>Latest Products</h1>
+            </div>
+            <div class="section group">
+                <div class="col_1_of_4 span_1_of_4">
+                    <img src="{% static 'images/pic5.jpg' %}" alt="" />
+                    <div class="grid_desc">
+                        <p class="title">Lorem ipsum dolor sitconsectetueradipis</p>
+                        <p class="title1">Lorem ipsum dolor sitconsectetueradipis</p>
+                        <div class="price1" style="height: 19px;">
+                            <span class="reducedfrom">$66.00</span>
+                            <span class="actual">$12.00</span>
+                        </div>
+                    </div>
+                    <div class="Details">
+                        <a href="single.html" title="Lorem ipsum dolor sit amet, consect etuer" class="button">Details
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col_1_of_4 span_1_of_4">
+                    <img src="{% static 'images/pic4.jpg' %}" alt="" />
+                    <div class="grid_desc">
+                        <p class="title">Lorem ipsum dolor sitconsectetueradipis</p>
+                        <p class="title1">Lorem ipsum dolor sitconsectetueradipis</p>
+                        <div class="price1" style="height: 19px;">
+                            <span class="reducedfrom">$66.00</span>
+                            <span class="actual">$12.00</span>
+                        </div>
+                    </div>
+                    <div class="Details">
+                        <a href="single.html" title="Lorem ipsum dolor sit amet, consect etuer" class="button">Details
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col_1_of_4 span_1_of_4">
+                    <img src="{% static 'images/pic6.jpg' %}" alt="" />
+                    <div class="grid_desc">
+                        <p class="title">Lorem ipsum dolor sitconsectetueradipis</p>
+                        <p class="title1">Lorem ipsum dolor sitconsectetueradipis</p>
+                        <div class="price1" style="height: 19px;">
+                            <span class="reducedfrom">$66.00</span>
+                            <span class="actual">$12.00</span>
+                        </div>
+                    </div>
+                    <div class="Details">
+                        <a href="single.html" title="Lorem ipsum dolor sit amet, consect etuer" class="button">Details
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col_1_of_4 span_1_of_4">
+                    <img src="{% static 'images/pic7.jpg' %}" alt="" />
+                    <div class="grid_desc">
+                        <p class="title">Lorem ipsum dolor sitconsectetueradipis</p>
+                        <p class="title1">Lorem ipsum dolor sitconsectetueradipis</p>
+                        <div class="price1" style="height: 19px;">
+                            <span class="reducedfrom">$66.00</span>
+                            <span class="actual">$12.00</span>
+                        </div>
+                    </div>
+                    <div class="Details">
+                        <a href="single.html" title="Lorem ipsum dolor sit amet, consect etuer" class="button">Details
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="button-container" style="display:flex; justify-content:center; gap:10px; padding:20px">
+    <a href="{% url 'editprofile' %}"><button type="button" style="background-color:#4CAF50; border-radius:5px; color:white; border:none; text-decoration:none; font-size:16px; width:150px; height:70px; cursor:pointer;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4CAF50'" onmousedown="this.style.backgroundColor='#3e8e41'; this.style.transform='translateY(2px)'" onmouseup="this.style.backgroundColor='#45a049'; this.style.transform='translateY(0px)'">Edit my profile</button></a>
+    <button type="button" style="background-color:#4CAF50; border-radius:5px; color:white; border:none; text-decoration:none; font-size:16px; width:150px; height:70px; cursor:pointer;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4CAF50'" onmousedown="this.style.backgroundColor='#3e8e41'; this.style.transform='translateY(2px)'" onmouseup="this.style.backgroundColor='#45a049'; this.style.transform='translateY(0px)'"> My Orders</button>
+</div>
+{% endblock content %}
